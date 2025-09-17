@@ -2,7 +2,7 @@ import sys
 
 from lib import Utils
 from lib.logger import Log4j
-
+# Note Project is develop using Python version 3.10.4
 if __name__ == '__main__':
 
     if len(sys.argv) < 3:
