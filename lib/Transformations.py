@@ -75,7 +75,7 @@ def apply_header(spark, df):
     event_df = header_df.hint("broadcast").crossJoin(df) \
         .select(struct(expr("uuid()").alias("eventIdentifier"),
                        col("eventType"), col("majorSchemaVersion"), col("minorSchemaVersion"),
-                       lit(date_format(current_timestamp(), "yyyy-MM-dd'T'HH:mm:ssZ")).alias("eventDateTime")
+                       lit(date_format(current_timestamp(), "yyyy-MM-dd' T 'HH:mm:ssZ")).alias("eventDateTime")
                        ).alias("eventHeader"),
                 array(struct(lit("contractIdentifier").alias("keyField"),
                              col("account_id").alias("keyValue")
