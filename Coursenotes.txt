@@ -1561,6 +1561,76 @@ git push -u origin master
 
 ----------------------------------------------------------------------------------------------------------------
 
+User@USER-OKH8S5ID5J MINGW64 /c/Udemy_Course/ApacheSparkePython/Projects/SBDL (master)
+$ git fetch
+From https://github.com/jnybrahma/PySparkProject
+ * [new branch]      dev              -> origin/dev
+ * [new branch]      feature-change-1 -> origin/feature-change-1
+ * [new branch]      release          -> origin/release
+
+User@USER-OKH8S5ID5J MINGW64 /c/Udemy_Course/ApacheSparkePython/Projects/SBDL (master)
+$ git fetch origin
+
+User@USER-OKH8S5ID5J MINGW64 /c/Udemy_Course/ApacheSparkePython/Projects/SBDL (master)
+$ git branch -a
+* master
+  remotes/origin/dev
+  remotes/origin/feature-change-1
+  remotes/origin/master
+  remotes/origin/release
+  
+User@USER-OKH8S5ID5J MINGW64 /c/Udemy_Course/ApacheSparkePython/Projects/SBDL (master)
+$ git checkout feature-change-1
+branch 'feature-change-1' set up to track 'origin/feature-change-1'.
+Switched to a new branch 'feature-change-1'
+
+User@USER-OKH8S5ID5J MINGW64 /c/Udemy_Course/ApacheSparkePython/Projects/SBDL (feature-change-1)
+
+PS C:\Udemy_Course\ApacheSparkePython\Projects\SBDL> git status
+On branch feature-change-1
+Your branch is up to date with 'origin/feature-change-1'.
+---------------------------------------------------------------------------------------------------
+
+## Project CI/CD Pipeline;
+- Here we will be using open source Jenkins automation tool for CI/CD pipeline.
+- Latest Jenkins tools need JDK-17 or JDK-21
+- Install the JDK-21 and Jenkins tools server
+- Check that Jenkins service is running in Task Manager --> Services.
+- Run the Jenkins tool web browser -http://localhost:8080/
+- Installed the necessary plugins for Jenkins server.
+
+## Now in Jenkins Server Click
+- Manage Jenkins --> System
+- System (Scroll down) - GitHub --> Add Github Server
+- Added GitHub Personal Access Token (Need to create personal access token in Github) and add to Secret Text (Kind) in Jenkins.
+- In GitHub Project repository (PySparkProject) --> Settings --> Webhooks --> add new webhook (Note: Not working with localhost server)
+- In Jenkins --> Create New Item --> (PySpark-Project) choose option --> Multibranch Pipeline
+- Git hub repo url - https://github.com/jnybrahma/PySparkProject.git
+- Now create new feature branch >> git checkout -b feature-change-2
+PS C:\Udemy_Course\ApacheSparkePython\Projects\SBDL> git status
+On branch feature-change-1
+Your branch is up to date with 'origin/feature-change-1'.
+
+PS C:\Udemy_Course\ApacheSparkePython\Projects\SBDL> git checkout -b feature-change-2
+
+PS C:\Udemy_Course\ApacheSparkePython\Projects\SBDL> git status
+On branch feature-change-2
+nothing to commit, working tree clean
+PS C:\Udemy_Course\ApacheSparkePython\Projects\SBDL>
+PS C:\Udemy_Course\ApacheSparkePython\Projects\SBDL>  git push --set-upstream origin feature-change-2
+
+
+##Note: PyTest file name should start with test_ or end with _test.py that's pytest rule.
+##Note: Test function name must start from test_.... that's pytest rule
+
+## KAFKA in Cloud
+- Create new account in https://www.confluent.io/get-started/ for kafka in cloud
+
+
+## Estimating resources for application in production environment
+- spark.driver.cores
+- spark.driver.memory
+- spark.driver.memoryOverhead
 
 
 
